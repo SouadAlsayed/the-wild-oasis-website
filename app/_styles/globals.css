@@ -32,9 +32,28 @@
 
 /* For data picker */
 
-.rdp {
-  --rdp-cell-size: 32px !important;
+.rdp-root {
+  --rdp-day_button-height: 30px !important;
+  --rdp-day_button-width: 30px !important;
+  --rdp-day-height: 30px !important;
+  --rdp-day-width: 30px !important;
+
+  --rdp-nav_button-height: 1.25rem !important;
+  --rdp-nav_button-width: 1.25rem !important;
+  --rdp-nav-height: 1.75rem !important;
+
   --rdp-accent-color: theme("colors.accent.500") !important;
   --rdp-background-color: theme("colors.accent.600") !important;
   margin: 0 !important;
+}
+.rdp-months {
+  justify-content: center;
+}
+.rdp-weekday {
+  opacity: 1 !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+}
+.rdp-nav {
+  margin-right: 10px;
 }
