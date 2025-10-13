@@ -43,7 +43,8 @@
   --rdp-nav-height: 1.75rem !important;
 
   --rdp-accent-color: theme("colors.accent.500") !important;
-  --rdp-background-color: theme("colors.accent.600") !important;
+  --rdp-accent-background-color: theme("colors.accent.600") !important;
+  --rdp-range_middle-color: theme("colors.accent.50") !important;
   margin: 0 !important;
 }
 .rdp-months {
