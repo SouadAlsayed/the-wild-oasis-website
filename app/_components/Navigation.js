@@ -1,11 +1,14 @@
-"use client";
+// "use client";
 
 import { Bars3CenterLeftIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import { useState } from "react";
+// import { useState } from "react";
+import { auth } from "../_lib/auth";
 
-export default function Navigation() {
-  const [menuOpen, setMenuOpen] = useState(false);
+export default async function Navigation() {
+  const session = await auth();
+  console.log(session);
+  // const [menuOpen, setMenuOpen] = useState(false);
   return (
     /* Desktop */
     <nav className="z-10 text-xl">
@@ -27,17 +30,33 @@ export default function Navigation() {
           </Link>
         </li>
         <li>
-          <Link
-            href="/account"
-            className="hover:text-accent-400 transition-colors"
-          >
-            Guest area
-          </Link>
+          {session?.user?.image ? (
+            <Link
+              href="/account"
+              className="hover:text-accent-400 transition-colors flex gap-4 items-center"
+            >
+              <img
+                className="rounded-full h-8"
+                src={session.user.image}
+                alt={session.user.name}
+                // Important to display google profile images
+                referrerPolicy="no-referrer"
+              />
+              <span>Guest area</span>
+            </Link>
+          ) : (
+            <Link
+              href="/account"
+              className="hover:text-accent-400 transition-colors"
+            >
+              Guest area
+            </Link>
+          )}
         </li>
       </ul>
 
       {/* Mobile */}
-      <button
+      {/* <button
         className="sm:hidden h-8 w-8"
         onClick={() => setMenuOpen((open) => !open)}
       >
@@ -46,8 +65,8 @@ export default function Navigation() {
         ) : (
           <Bars3CenterLeftIcon className="h-8 w-8 text-primary-100" />
         )}
-      </button>
-      {menuOpen && (
+      </button> */}
+      {/* {menuOpen && (
         <div
           className="border-b border-primary-900 fixed top-[100px] right-0 w-full py-8 bg-primary-950 
             flex flex-col items-center justify-center gap-2 sm:hidden shadow-md z-100"
@@ -73,7 +92,7 @@ export default function Navigation() {
             Guest area
           </Link>
         </div>
-      )}
+      )} */}
     </nav>
   );
 }
