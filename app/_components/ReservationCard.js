@@ -24,13 +24,13 @@ function ReservationCard({ booking, onDelete }) {
   } = booking;
 
   return (
-    <div className="flex border border-primary-800">
-      <div className="relative h-32 aspect-square">
+    <div className="flex flex-col min-[970px]:flex-row border border-primary-800 overflow-hidden">
+      <div className="relative w-full min-[970px]:w-48 h-48 min-[970px]:h-auto flex-shrink-0">
         <Image
           src={image}
           alt={`Cabin ${name}`}
           fill
-          className="object-cover border-r border-primary-800"
+          className="object-cover min-[970px]:border-r border-primary-800"
         />
       </div>
 
@@ -70,12 +70,12 @@ function ReservationCard({ booking, onDelete }) {
         </div>
       </div>
 
-      <div className="flex flex-col border-l border-primary-800 w-[100px]">
+      <div className="flex min-[970px]:flex-col border  min-[970px]:border-0 min-[970px]:border-l border-primary-800 w-full min-[970px]:w-[100px]">
         {!isPast(startDate) ? (
           <>
             <Link
               href={`/account/reservations/edit/${id}`}
-              className="group flex items-center gap-2 uppercase text-xs font-bold text-primary-300 border-b border-primary-800 flex-grow px-3 hover:bg-accent-600 transition-colors hover:text-primary-900"
+              className="group flex items-center gap-2 uppercase text-xs font-bold text-primary-300 border-r min-[970px]:border-b border-primary-800 flex-grow px-3 py-3 hover:bg-accent-600 transition-colors hover:text-primary-900"
             >
               <PencilSquareIcon className="h-5 w-5 text-primary-600 group-hover:text-primary-800 transition-colors" />
               <span className="mt-1">Edit</span>
